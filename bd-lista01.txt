@@ -41,3 +41,29 @@ INSERT INTO cliente VALUES
 ('089', 'Carlos Eduardo', 'Av Rio Branco');
 
 SELECT * FROM cliente;
+
+SELECT id FROM cliente WHERE nome = 'Tiago Lopes';
+
+SELECT * FROM cliente WHERE nome LIKE '%Lopes%';
+
+SELECT endereço FROM cliente;
+
+SELECT nome FROM cliente WHERE endereço LIKE '%Severino Peixoto%';
+
+SELECT * FROM funcionário WHERE endereço LIKE '%Av%';
+
+SELECT telefone FROM funcionário WHERE nome = 'Pedro Batista';
+
+SELECT endereço FROM funcionário WHERE nome = 'Lucas Barbosa';
+
+SELECT nome, endereço FROM funcionário WHERE matrícula = '456';
+
+SELECT * FROM funcionário WHERE telefone LIKE '087%' OR telefone LIKE '081%';
+
+SELECT preço FROM produto WHERE nome = 'TV LED';
+
+SELECT * FROM produto WHERE nome LIKE '%TV%';
+
+SELECT nome, preço FROM produto WHERE código = '872819';
+
+SELECT * FROM produto WHERE preço > 500;
