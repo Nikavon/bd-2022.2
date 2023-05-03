@@ -33,3 +33,11 @@ INSERT INTO produto VALUES
 ('142351', 'Notebook', '5600'),
 ('456487', 'TV LCD', '2000');
 
+INSERT INTO cliente VALUES
+('985', 'Fabio da Silva', 'Rua Severino Peixoto'),
+('839', 'Igor Torres', 'Rua São Domingos'),
+('789', 'Tiago Lopes', 'Rua Joaquim Branco'),
+('367', 'Fabiano de Souza', 'Rua Severino Peixoto'),
+('089', 'Carlos Eduardo', 'Av Rio Branco');
+
+SELECT * FROM cliente;
