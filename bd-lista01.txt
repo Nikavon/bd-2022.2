@@ -1,0 +1,35 @@
+CREATE DATABASE lista01;
+USE lista01;
+CREATE TABLE funcionário (
+    matrícula VARCHAR(4),
+    nome VARCHAR(200),
+    endereço VARCHAR(200),
+    telefone VARCHAR(11)
+);
+
+CREATE TABLE produto (
+    código VARCHAR(6),
+    nome VARCHAR(100),
+    preço FLOAT(10)
+);
+
+CREATE TABLE cliente (
+    id VARCHAR(4),
+    nome VARCHAR(200),
+    endereço VARCHAR(200)
+);
+
+INSERT INTO funcionário VALUES 
+('123', 'João da Silva', 'Av Caruaru', '08765454123'),
+('456', 'Vanessa Brandão', 'Av Rui Barbosa', '08145678945'),
+('789', 'Lucas Barbosa', 'Rua Afonso Pena', '08162193189'),
+('757', 'Pedro Batista', 'Rua Mauricio Pereira', '08218648486');
+
+INSERT INTO produto VALUES
+('872819','Computador', '1200'),
+('123451', 'TV LED' ,'3000'),
+('723512', 'Impressora', '800'),
+('875819', 'Tablet', '1500'),
+('142351', 'Notebook', '5600'),
+('456487', 'TV LCD', '2000');
+
