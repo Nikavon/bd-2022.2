@@ -16,9 +16,9 @@ CREATE TABLE dependente (
 );
 
 CREATE TABLE filmes (
-    id VARCHAR (4),
+    id int AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR (200),
-    ano VARCHAR (4)
+    ano INT
 );
 
 CREATE TABLE aluguel (
@@ -41,15 +41,15 @@ INSERT INTO  dependente VALUES
 ('Gabriel Araújo', 'Carlos Borba', '1994-12-31'),
 ('Pedro Batista', 'Bruno Camargo', '1981-06-13');
 
-INSERT INTO filmes VALUES
-('132', 'Matrix', '1999'),
-('422', '10 Coisas que eu odeio em você', '1999'),
-('927', 'Psicose', '1960'),
-('938', 'Laranja Mecânica', '1971'),
-('273', '2001: Uma Odisseia no Espaço', '1968'),
-('162', 'O Poderoso Chefão', '1972'),
-('133', 'Vanilla Sky', '2001'),
-('332', 'A.I. InteligÊncia Artificial', '2001');
+INSERT INTO filmes (titulo, ano) VALUES
+('Matrix', '1999'),
+('10 Coisas que eu odeio em você', '1999'),
+('Psicose', '1960'),
+('Laranja Mecânica', '1971'),
+('2001: Uma Odisseia no Espaço', '1968'),
+('O Poderoso Chefão', '1972'),
+('Vanilla Sky', '2001'),
+('A.I. Inteligência Artificial', '2001');
 
 INSERT INTO aluguel VALUES
 ('Sofia Alves', 'Matrix', '2013-01-13'),
@@ -59,7 +59,7 @@ INSERT INTO aluguel VALUES
 ('Pedro Batista', '2001: Uma Odisseia no Espaço', '2013-05-27'),
 ('Walter Bastos', 'O Poderoso Chefão', '2013-02-28'),
 ('Carlos Borba', 'Vanilla Sky', '2013-04-12'),
-('Bruno Camargo', 'A.I. InteligÊncia Artificial', '2013-03-21'),
+('Bruno Camargo', 'A.I. Inteligência Artificial', '2013-03-21'),
 ('Gabriel Araújo', 'Psicose', '2013-05-01'),
 ('Sofia Alves', 'Laranja Mecânica', '2013-04-24'),
 ('Carlos Borba', 'A.I. InteligÊncia Artificial', '2013-04-22');
