@@ -57,9 +57,9 @@ INSERT INTO aluguel VALUES
 ('Yasmin Barreto', 'Psicose', '2013-01-01'),
 ('Gabriel Araújo', 'Laranja Mecânica', '2013-05-20'),
 ('Pedro Batista', '2001: Uma Odisseia no Espaço', '2013-05-27'),
-('Walter Bastos', 'O Poderoso Chefão', '2013-02-28'),
+('Walter Bastos da Silva', 'O Poderoso Chefão', '2013-02-28'),
 ('Carlos Borba', 'Vanilla Sky', '2013-04-12'),
 ('Bruno Camargo', 'A.I. Inteligência Artificial', '2013-03-21'),
 ('Gabriel Araújo', 'Psicose', '2013-05-01'),
 ('Sofia Alves', 'Laranja Mecânica', '2013-04-24'),
-('Carlos Borba', 'A.I. InteligÊncia Artificial', '2013-04-22');
+('Carlos Borba', 'A.I. Inteligência Artificial', '2013-04-22');
