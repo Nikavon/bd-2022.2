@@ -1,0 +1,225 @@
+CREATE DATABASE lista03;
+USE lista03;
+
+CREATE TABLE cliente (
+	nome VARCHAR(200),
+	endereço VARCHAR(200),
+    telefone VARCHAR(11),
+    número INT,
+    PRIMARY KEY (número)
+);
+
+CREATE TABLE filme (
+	id INT,
+    título VARCHAR(100),
+    categoria VARCHAR(20),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE diretor (
+	id INT,
+    nome VARCHAR(200),
+    sexo  VARCHAR(2),
+    país VARCHAR(50),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE ator (
+	id INT,
+    nome VARCHAR(200),
+    sexo VARCHAR(2),
+    país VARCHAR(50),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE dvd (
+	id INT,
+    id_filme INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_filme) REFERENCES filme (id) ON DELETE CASCADE
+);
+
+CREATE TABLE aluguel (
+	cliente_id INT,
+    dvd_id INT,
+	dt_empr DATE,
+    dt_devolução DATE,
+    dt_prevista_dev DATE,
+	FOREIGN KEY (cliente_id) REFERENCES cliente (número) ON DELETE CASCADE
+);
+
+
+CREATE TABLE filme_diretor (
+    id_filme INT,
+    id_diretor INT,
+    FOREIGN KEY (id_filme) REFERENCES filme (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_diretor) REFERENCES diretor (id) ON DELETE CASCADE
+);
+
+CREATE TABLE filme_ator (
+    id_filme INT,
+    id_ator INT,
+    FOREIGN KEY (id_filme) REFERENCES filme (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_ator) REFERENCES ator (id) ON DELETE CASCADE
+);
+
+INSERT INTO cliente (nome, endereço, telefone, número) VALUES
+('Josefina dos Santos', 'Rua Meia Noite, 13', '82988776655', '1521'),
+('Mariana Gomes', 'Avenida Jeans Azul, 2012', '82999775533', '1522'),
+('Pedro de Gois', 'Rua do Radio, 334', '83982112233', '1523'),
+('José da Silva', 'Rua Nª Sra. do Carmo, 408', '82996669966', '1524');
+
+INSERT INTO filme (id, título, categoria) VALUES
+('1320', '10 coisas que odeio em você', 'romance'),
+('1321', 'Monty Python em busca do Cálice Sagrado', 'comedia'),
+('1322', 'Crepúsculo', 'romance'),
+('1323', 'Halloween', 'terror'),
+('1324', 'Suspiria (2018)', 'terror'),
+('1325', 'Suspiria (1977)', 'terror'),
+('1326', 'Batman: o Cavaleiro das Trevas', 'ação'),
+('1327', 'O Segredo de Brokeback Mountain', 'drama'),
+('1328', '...E o Vento Levou', 'romance'),
+('1329', 'Poderoso Chefão', 'máfia'),
+('1330', 'Drácula de Bram Stoker', 'terror'),
+('1331', 'Laranja Mecânica', 'ficcão cientifica');
+
+INSERT INTO diretor (id, nome, sexo, país) VALUES
+(1401, 'Francis Ford Coppola', 'M', 'EUA'),
+(1402, 'Stanley Kubrick', 'M', 'EUA'),
+(1403, 'Gil Junger', 'M', 'EUA'),
+(1404, 'Terry Gilliam', 'M', 'EUA'),
+(1405, 'Terry Jones', 'M', 'Reino Unido'),
+(1406, 'Catherine Hardwicke', 'F', 'EUA'),
+(1407, 'John Carpenter', 'M', 'EUA'),
+(1408, 'Dario Argento', 'M', 'Itália'),
+(1409, 'Luca Guadagnino', 'M', 'Itália'),
+(1410, 'Christopher Nolan', 'M', 'Reino Unido'),
+(1411, 'Ang Lee', 'M', 'Taiwan'),
+(1412, 'Victor Fleming', 'M', 'EUA');
+
+INSERT INTO ator (id, nome, sexo, país) VALUES
+(1540, 'Malcolm McDowell', 'M', 'Reino Unido'),
+(1541, 'John Cleese', 'M', 'Reino Unido'),
+(1542, 'Graham Champman', 'M', 'Reino Unido'),
+(1543, 'Heath Ledger', 'M', 'Austrália'),
+(1544, 'Kristen Stewart', 'F', 'EUA'),
+(1545, 'Robert Pattinson', 'M', 'Reino Unido'),
+(1546, 'Jamie Lee Curtis', 'F', 'EUA'),
+(1547, 'Jessica Harper', 'F', 'EUA'),
+(1548, 'Dakota Johnson', 'F', 'EUA'),
+(1549, 'Tilda Swinton', 'F', 'Reino Unido'),
+(1550, 'Christian Bale', 'M', 'Reino Unido'),
+(1551, 'Jake Gyllenhaal', 'M', 'EUA'),
+(1552, 'Julia Stiles', 'F', 'EUA'),
+(1553, 'Vivien Leigh', 'F', 'Índia, Reino Unido'),
+(1554, 'Clark Gable', 'M', 'EUA'),
+(1555, 'Al Pacino', 'M', 'EUA'),
+(1556, 'Marlon Brando', 'M', 'EUA'),
+(1557, 'Gary Oldman', 'M', 'Reino Unido'),
+(1558, 'Winona Ryder', 'F', 'EUA'),
+(1559, 'Keanu Reeves', 'M', 'Líbano, Canadá'),
+(1560, 'Adrienne Corri', 'F', 'Reino Unido');
+
+INSERT INTO dvd (id, id_filme) VALUES
+(1240, 1320),
+(1241, 1321),
+(1242, 1322),
+(1243, 1323),
+(1244, 1324),
+(1245, 1325),
+(1246, 1326),
+(1247, 1327),
+(1248, 1328),
+(1249, 1329),
+(1250, 1330),
+(1251, 1331);
+
+
+INSERT INTO aluguel (cliente_id, dvd_id, dt_empr, dt_devolução, dt_prevista_dev) VALUES
+(1522, 1244, '2019-12-12', '2019-12-19', '2019-12-20'),
+(1521, 1242, '2023-05-01', '2023-05-7', '2023-05-6'),
+(1521, 1240, '2023-05-01', '2023-05-7', '2023-05-6'),
+(1522, 1245, '2023-05-01', '2023-05-7', '2023-05-6'),
+(1523, 1242, '2023-04-01', '2023-05-16', '2023-04-08'),
+(1523, 1249, '2023-04-01', '2023-05-16', '2023-04-08'),
+(1524, 1251, '23-05-10', NULL, '2023-05-17'),
+(1524, 1240, '23-05-10', NULL, '2023-05-17'),
+(1524, 1251, '23-05-10', NULL, '2023-05-17');
+
+INSERT INTO filme_diretor VALUES
+(1320, 1403),
+(1321, 1404),
+(1321, 1405),
+(1322, 1406),
+(1323, 1407),
+(1324, 1409),
+(1325, 1408),
+(1326, 1410),
+(1327, 1411),
+(1328, 1412),
+(1329, 1401),
+(1330, 1401),
+(1331, 1402);
+
+INSERT INTO filme_ator (id_filme, id_ator) VALUES
+(1320, 1543),
+(1320, 1552),
+(1321, 1541),
+(1321, 1542),
+(1322, 1544),
+(1322, 1545),
+(1323, 1546),
+(1324, 1548),
+(1324, 1549),
+(1325, 1547),
+(1326, 1543),
+(1326, 1550),
+(1326, 1557),
+(1327, 1543),
+(1327, 1551),
+(1328, 1553),
+(1329, 1554),
+(1329, 1555),
+(1329, 1556),
+(1330, 1557),
+(1330, 1558),
+(1330, 1559),
+(1331, 1540),
+(1331, 1560);
+
+SELECT * FROM ator WHERE nome LIKE '%Leigh%';
+
+SELECT cliente_id FROM aluguel WHERE dt_empr = '2019-12-12';
+
+SELECT filme.id FROM filme INNER JOIN filme_diretor ON filme.id = filme_diretor.id_filme
+INNER JOIN diretor ON filme_diretor.id_diretor = diretor.id WHERE diretor.nome = 'Francis Ford Coppola';
+
+SELECT filme.id FROM filme INNER JOIN filme_ator ON filme.id = filme_ator.id_filme
+INNER JOIN ator ON filme_ator.id_ator = ator.id WHERE ator.id = 1543;
+
+SELECT aluguel.dvd_id FROM aluguel JOIN cliente ON aluguel.cliente_id = cliente.número WHERE cliente.número = 1521;
+
+SELECT cliente_id FROM aluguel WHERE dt_devolução > dt_prevista_dev;
+
+SELECT título FROM filme WHERE id IN (SELECT id_filme FROM dvd WHERE id = '1244');
+
+SELECT título FROM filme WHERE id IN (SELECT id_filme FROM filme_diretor
+WHERE id_diretor IN (SELECT id FROM diretor WHERE nome = 'Stanley Kubrick'));
+
+SELECT título FROM filme WHERE id IN (SELECT id_filme FROM filme_ator WHERE id_ator IN (SELECT id FROM ator WHERE nome = 'Adrienne Corri'));
+
+SELECT nome FROM ator WHERE id IN (SELECT id_ator FROM filme_ator WHERE id_filme IN (SELECT id FROM filme WHERE título = '10 coisas que odeio em você'));
+
+SELECT c.nome FROM cliente c WHERE c.número IN (SELECT a.cliente_id FROM aluguel a LEFT JOIN dvd d ON a.dvd_id = d.id WHERE d.id IS NULL);
+
+SELECT a.nome FROM ator a JOIN filme_ator fa ON a.id = fa.id_ator
+JOIN filme f ON fa.id_filme = f.id WHERE f.título = 'Monty Python em busca do Cálice Sagrado';
+
+SELECT f.título FROM filme f JOIN dvd d ON f.id = d.id_filme JOIN aluguel a ON d.id = a.dvd_id JOIN cliente c ON a.cliente_id = c.número WHERE c.nome = 'Mariana Gomes';
+
+SELECT d.nome FROM diretor d JOIN filme_diretor fd ON d.id = fd.id_diretor JOIN filme f ON fd.id_filme = f.id
+JOIN dvd ON f.id = dvd.id_filme JOIN aluguel a ON dvd.id = a.dvd_id JOIN cliente c ON a.cliente_id = c.número
+WHERE c.nome = 'Pedro de Gois';
+
+SELECT DISTINCT a.nome FROM ator a JOIN filme_ator fa ON a.id = fa.id_ator JOIN filme f ON fa.id_filme = f.id
+JOIN dvd ON f.id = dvd.id_filme JOIN aluguel al ON dvd.id = al.dvd_id JOIN cliente c ON al.cliente_id = c.número WHERE c.nome = 'José da Silva';
